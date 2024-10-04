@@ -10,9 +10,12 @@ class Item(db.Model):
     
     def __init__(self, name, location, quantity) -> None:
         self.name = name
-        self.location -location
+        self.location = location
         self.quantity = quantity
+    
+    def to_dict(self):
+        return {'id':self.id,'name': self.name, 'location': self.location, 'quantity': self.quantity}
         
     def json(self):
-        return {'name': self.name, 'location': self.location, 'quantity': self.quantity}
+        return {'id':self.id,'name': self.name, 'location': self.location, 'quantity': self.quantity}
 
